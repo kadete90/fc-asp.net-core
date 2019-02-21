@@ -12408,7 +12408,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 2.2.1",
+      "Microsoft.EntityFrameworkCore.Sqlite >= 2.2.2",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -12419,11 +12419,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Core\\the-little-asp.net-core\\AspNetCoreTodo\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
+      "projectUniqueName": "E:\\Projects\\Core\\the-little-asp.net-core\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
       "projectName": "AspNetCoreTodo",
-      "projectPath": "E:\\Projects\\Core\\the-little-asp.net-core\\AspNetCoreTodo\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
+      "projectPath": "E:\\Projects\\Core\\the-little-asp.net-core\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
       "packagesPath": "C:\\Users\\KADETE\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Core\\the-little-asp.net-core\\AspNetCoreTodo\\AspNetCoreTodo\\obj\\",
+      "outputPath": "E:\\Projects\\Core\\the-little-asp.net-core\\AspNetCoreTodo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12466,7 +12466,7 @@
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
-            "version": "[2.2.1, )"
+            "version": "[2.2.2, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -12482,17 +12482,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "AspNetCoreTodo depends on Microsoft.EntityFrameworkCore.Sqlite (>= 2.2.1) but Microsoft.EntityFrameworkCore.Sqlite 2.2.1 was not found. An approximate best match of Microsoft.EntityFrameworkCore.Sqlite 2.2.2 was resolved.",
-      "libraryId": "Microsoft.EntityFrameworkCore.Sqlite",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    }
-  ]
+  }
 }
