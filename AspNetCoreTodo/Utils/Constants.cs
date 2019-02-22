@@ -1,4 +1,4 @@
-namespace AspNetCoreTodo.Utils
+namespace AspNetCoreTodo
 {
     public static class Constants
     {

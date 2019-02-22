@@ -5,7 +5,6 @@ using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using AspNetCoreTodo.Utils;
 
 namespace AspNetCoreTodo
 {
@@ -28,15 +27,20 @@ namespace AspNetCoreTodo
             await roleManager.CreateAsync(new IdentityRole(Constants.AdministratorRole));
         }
 
+        const string AdminUserName = "admin@todo.local";
+
         private static async Task EnsureTestAdminAsync(UserManager<IdentityUser> userManager)
         {
-            var testAdmin = await userManager.Users.Where(x => x.UserName == "admin@todo.local").SingleOrDefaultAsync();
-            if (testAdmin != null) { return; }
+            var testAdmin = await userManager.Users.Where(x => x.UserName == AdminUserName).SingleOrDefaultAsync();
+            if (testAdmin != null)
+            {
+                return;
+            }
 
             testAdmin = new IdentityUser
             {
-                UserName = "admin@todo.local",
-                Email = "admin@todo.local"
+                UserName = AdminUserName,
+                Email = AdminUserName
             };
 
             await userManager.CreateAsync(testAdmin, "NotSecure123!!");
