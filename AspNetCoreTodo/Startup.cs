@@ -37,17 +37,26 @@ namespace AspNetCoreTodo
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // AddSingleton adds your service to the service container as a singleton. 
-            // This means that only one copy of the FakeTodoItemService is created, and it's reused whenever the service is requested.
-            services.AddSingleton<ITodoItemService, FakeTodoItemService>();
+            /*
+                AddSingleton adds your service to the service container as a singleton. 
+                This means that only one copy of the FakeTodoItemService is created, and it's reused whenever the service is requested.
+             */
+            // services.AddSingleton<ITodoItemService, FakeTodoItemService>();
+
+            /*
+                AddScoped adds your service to the service container using the scoped lifecycle. 
+                This means that a new instance of the TodoItemService class will be created during each webrequest.
+                This is required for service classes that interact with a database.
+             */
+            services.AddScoped<ITodoItemService, TodoItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
