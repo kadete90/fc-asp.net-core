@@ -14,6 +14,8 @@ using AspNetCoreTodo.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreTodo.Services;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace AspNetCoreTodo
 {
@@ -57,6 +59,12 @@ namespace AspNetCoreTodo
                 This is required for service classes that interact with a database.
              */
             services.AddScoped<ITodoItemService, TodoItemService>();
+
+            // Registers health checks services
+            services.AddHealthChecks()
+                .AddSqlite("SqliteDb", Configuration.GetConnectionString("DefaultConnection"))
+                .AddCheck("Foo", () => HealthCheckResult.Healthy("Foo is OK!"), tags: new[] { "foo_tag" })
+                .AddCheck("Bar", () => HealthCheckResult.Unhealthy("Bar is unhealthy!"), tags: new[] { "bar_tag" });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +81,19 @@ namespace AspNetCoreTodo
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
+            {
+                // Filter out the 'Bar' health check. Only Foo and Baz execute.
+                Predicate = (check) => check.Tags.Contains("SqliteDb") || check.Tags.Contains("foo_tag"),
+
+                ResultStatusCodes =
+                {
+                    [HealthStatus.Healthy] = StatusCodes.Status200OK,
+                    [HealthStatus.Degraded] = StatusCodes.Status200OK,
+                    [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+                }
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
