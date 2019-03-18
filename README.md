@@ -18,7 +18,7 @@ Full-stack tecnologies to be used:
    
   Front-End:
    * Bootstrap 4
-   * AngularJS 5/6
+   * AngularJS 5/6 & Vue.js
    * TypeScript
    * Webpack (concate & minify & uglify + transpile SASS to CSS + compile TypeScript to JavaScript)
    
