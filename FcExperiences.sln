@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreTodo.IntegrationT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreTodo.UnitTests", "AspNetCoreTodo.UnitTests\AspNetCoreTodo.UnitTests.csproj", "{ECA5F3BD-EB01-4837-BFE5-EDC954B65190}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreAngular", "AspNetCoreAngular\AspNetCoreAngular.csproj", "{2B55CD83-FC65-4F11-918F-9D56407B1A4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreAngular", "AspNetCoreAngular\AspNetCoreAngular.csproj", "{2B55CD83-FC65-4F11-918F-9D56407B1A4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCoreTodo", "AspNetCoreTodo", "{FFFD49F2-CF59-417B-B4B7-76CE41876EB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCoreTemplates", "AspNetCoreTemplates", "{745A669E-0338-41C2-BCCB-543476C54BA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F55667B-1389-4AB1-953D-405D69F8EC22} = {FFFD49F2-CF59-417B-B4B7-76CE41876EB2}
+		{D1A9EDB6-F057-4FF9-A2B1-B23A792D3C86} = {FFFD49F2-CF59-417B-B4B7-76CE41876EB2}
+		{ECA5F3BD-EB01-4837-BFE5-EDC954B65190} = {FFFD49F2-CF59-417B-B4B7-76CE41876EB2}
+		{2B55CD83-FC65-4F11-918F-9D56407B1A4E} = {745A669E-0338-41C2-BCCB-543476C54BA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6F841DFC-84EA-450E-988D-3B1456372061}
